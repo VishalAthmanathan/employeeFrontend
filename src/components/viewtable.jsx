@@ -20,22 +20,24 @@ function Table(){
         const fetchdata= async () =>{
             try {
                 console.log('Before request');
-                const response = await axios.get('/getBooks');
+                const response = await axios.get('/viewUser');
                 console.log('After request');
                 console.log(response.data);
                 const transformedData = response.data.map(item => ({
-                  id: item.id.toString(),
-                  username: item.id.toString(),
-                  department: item.department.toString(),
-                  dob: item.dob.toString(),
-                  gender: item.gender.toString(),
-                  designation: item.designation.toString(),
-                  salary: item.salary.toString(),
-                  contact:item.contact.toString(),
-                  address:item.address.toString(),
-                  Shift:item.shift.toString()
+                 
+                  id: item.employeeid,
+                  username: item.employeename,
+                  department: item.department,
+                  dob: new Date(item.dateofbirth).toLocaleDateString(),
+                  gender: item.gender,
+                  designation: item.designation,
+                  salary: item.salary,
+                  contact:item.contact,
+                  address:item.address,
+                  Shift:item.Shift
                 //   publishdate: new Date(item.publishdate).toLocaleDateString()
                 }));
+                
                 setData(transformedData);
                 console.log(data);
               } catch (error) {

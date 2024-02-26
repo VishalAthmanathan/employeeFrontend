@@ -1,12 +1,14 @@
 import react, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function SecondForm({ employeeName, employeeId, department, dateOfBirth, gender, designation, salary }) {
+    const navigate = useNavigate();
     const [contact,setcontact] = useState("");
     const [address,setaddress] = useState("");
-    const [shift,setshift] = useState("");
+    const [Shift,setShift] = useState("");
     const storedEmployeeName = localStorage.getItem('employeeName') || '';
 const storedEmployeeId = localStorage.getItem('employeeId') || '';
 const storedDepartment = localStorage.getItem('department') || '';
@@ -27,10 +29,11 @@ const storedSalary = localStorage.getItem('salary') || '';
           salary: storedSalary,
           contact:contact,
           address:address,
-          Shift:shift
+          Shift:Shift
         }).then((response)=>{
           console.log(response);
           Swal.fire('Success!', 'Employee added successfully!', 'success');
+          navigate('/viewUser');
         })
         .catch((error) => {
             console.error(error);
@@ -98,7 +101,7 @@ const storedSalary = localStorage.getItem('salary') || '';
          </div>
          <div className="mb-3">
              <label htmlFor="eshift" className="form-label">Employee Shift</label>
-             <input type="text" className="form-control" placeholder="Enter employee shift" name="shift" onChange={(e)=>setshift(e.target.value)} />
+             <input type="text" className="form-control" placeholder="Enter employee shift" name="shift" onChange={(e)=>setShift(e.target.value)} />
          </div>
           <div className='mb-3 text-center'>
             <button type='submit' className='btn btn-primary'>
