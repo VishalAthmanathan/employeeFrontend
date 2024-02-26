@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // import { Form, Button, Col } from 'react-bootstrap';
 import './empform.css';
 import SecondForm from './nextform';
-import { calculateAge } from './utils';
+import { calculateAge } from './util';
 
 
 function Empform(){
