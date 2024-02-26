@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 // import { Form, Button, Col } from 'react-bootstrap';
 import './empform.css';
 import SecondForm from './nextform';
+import { calculateAge } from './utils';
 
 
 function Empform(){
     const navigate = useNavigate();
+    const [isValid, setIsValid] = useState(true);
     const [submitted, setSubmitted] = useState(false);
     const [employeeName, setEmployeeName] = useState("");
     const [employeeId, setEmployeeId] = useState("");
@@ -46,6 +48,10 @@ function Empform(){
   localStorage.setItem('gender', gender);
   localStorage.setItem('designation', designation);
   localStorage.setItem('salary', salary);
+  const age = calculateAge(dateOfBirth);
+  if (age < 18) {
+    Swal.fire('Error!', 'Age must be at least 18 years old.', 'error');
+  }
         navigate('/secondform');
       };
 
