@@ -51,8 +51,10 @@ function Empform(){
   const age = calculateAge(dateOfBirth);
   if (age < 18) {
     Swal.fire('Error!', 'Age must be at least 18 years old.', 'error');
+  }else{
+    navigate('/secondform');
   }
-        navigate('/secondform');
+        
       };
 
       const addUser = async() => {
