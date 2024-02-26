@@ -29,7 +29,7 @@ function Empform(){
           confirmButtonText: 'Yes, submit it!',
         }).then((result) => {
           if (result.isConfirmed) {
-            addUser();
+            handleSubmit();
           }
         });
       };
@@ -97,7 +97,7 @@ function Empform(){
           salary={salary}
         />
       ) : (
-        <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: 'auto', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)', backgroundColor: '#f4f4f4' }}>
+        <form onSubmit={showConfirmation} style={{ maxWidth: '400px', margin: 'auto', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)', backgroundColor: '#f4f4f4' }}>
     <div className="mb-3">
         <label htmlFor="employeeName" className="form-label">Employee Name</label>
         <input type="text" className="form-control" placeholder="Enter employee name" name="employeeName" onChange={(e)=>setEmployeeName(e.target.value)} />
