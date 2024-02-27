@@ -2,6 +2,7 @@ import react, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './empform.css'
 
 
 function SecondForm({ employeeName, employeeId, department, dateOfBirth, gender, designation, salary }) {
@@ -42,7 +43,7 @@ const storedSalary = localStorage.getItem('salary') || '';
       }
 
     return(
-        <form onSubmit={addUser} style={{ maxWidth: '400px', margin: 'auto', padding: '20px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)', backgroundColor: '#f4f4f4' }}>
+        <form onSubmit={addUser} className='forme'>
           <div className="mb-3">
              <label htmlFor="employeeName" className="form-label">Employee Name</label>
              <input type="text" className="form-control" readonly="readonly"  value={storedEmployeeName} />
