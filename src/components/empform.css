@@ -14,3 +14,17 @@
   .rooot{
     background-color: cadetblue;
   }
+
+  .forme {
+    padding: 20px;
+    margin: 100px 0;
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.38);
+  }
