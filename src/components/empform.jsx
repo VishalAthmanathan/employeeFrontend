@@ -49,13 +49,17 @@ function Empform(){
   localStorage.setItem('designation', designation);
   localStorage.setItem('salary', salary);
   const age = calculateAge(dateOfBirth);
-  if (age < 18) {
-    Swal.fire('Error!', 'Age must be at least 18 years old.', 'error');
-    setSubmitted(false);
+  if(employeeName && employeeId && department && dateOfBirth && gender && designation && salary){
+    if (age < 18) {
+      Swal.fire('Error!', 'Age must be at least 18 years old.', 'error');
+      setSubmitted(false);
+    }else{
+      navigate('/secondform');
+    }
   }else{
-    navigate('/secondform');
+    Swal.fire('Error!', 'Fill all the required Details', 'error');
+    setSubmitted(false);
   }
-        
       };
 
       const addUser = async() => {
