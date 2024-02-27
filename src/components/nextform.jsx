@@ -20,6 +20,7 @@ const storedSalary = localStorage.getItem('salary') || '';
     
     
     const addUser = async(e) => {
+      e.preventDefault();
         axios.post('/addUser', {
           username: storedEmployeeName,
           id: storedEmployeeId,
