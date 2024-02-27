@@ -52,15 +52,15 @@ function Table(){
     }, [data]);
 
     const columns = [
-        { field: 'id' , headerName: 'ID', width: 250 },
-        { field: 'username', headerName: 'Username', width: 250 },
-        { field: 'department', headerName: 'Department', width: 350 },
+        { field: 'id' , headerName: 'ID', width: 150 },
+        { field: 'username', headerName: 'Username', width: 175 },
+        { field: 'department', headerName: 'Department', width: 250 },
         { field: 'dob', headerName: 'DOB', width: 150 },
         { field: 'gender', headerName: 'Gender', width: 150},
         { field: 'designation', headerName: 'Designation', width: 150},
         { field: 'salary', headerName: 'Salary', width: 150},
         { field: 'contact', headerName: 'Contact', width: 150},
-        { field: 'address', headerName: 'Address', width: 150},
+        { field: 'address', headerName: 'Address', width: 350},
         { field: 'Shift', headerName: 'Shift', width: 150}
       ];
     
