@@ -21,6 +21,20 @@ const storedSalary = localStorage.getItem('salary') || '';
     
     const addUser = async(e) => {
       e.preventDefault();
+      if (!contact) {
+        Swal.fire('Error!', 'Employee Contact is required.', 'error');
+        return;
+      }
+    
+      if (!address) {
+        Swal.fire('Error!', 'Employee Address is required.', 'error');
+        return;
+      }
+    
+      if (!Shift) {
+        Swal.fire('Error!', 'Employee Shift is required.', 'error');
+        return;
+      }
         axios.post('/addUser', {
           username: storedEmployeeName,
           id: storedEmployeeId,
