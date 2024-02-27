@@ -49,39 +49,70 @@ function Empform(){
   localStorage.setItem('designation', designation);
   localStorage.setItem('salary', salary);
   const age = calculateAge(dateOfBirth);
-  if(employeeName && employeeId && department && dateOfBirth && gender && designation && salary){
+  // if(employeeName && employeeId && department && dateOfBirth && gender && designation && salary){
+  //   if (age < 18) {
+  //     Swal.fire('Error!', 'Age must be at least 18 years old.', 'error');
+  //     setSubmitted(false);
+  //   }else{
+  //     navigate('/secondform');
+  //   }
+  // }else{
+  //   Swal.fire('Error!', 'Fill all the required Details', 'error');
+  //   setSubmitted(false);
+  // }
+  if (!employeeName) {
+    Swal.fire('Error!', 'Employee Name is required.', 'error');
+    setSubmitted(false);
+  } else if (!employeeId) {
+    Swal.fire('Error!', 'Employee ID is required.', 'error');
+    setSubmitted(false);
+  } else if (!department) {
+    Swal.fire('Error!', 'Department is required.', 'error');
+    setSubmitted(false);
+  } else if (!dateOfBirth) {
+    Swal.fire('Error!', 'Date of Birth is required.', 'error');
+    setSubmitted(false);
+  } else if (!gender) {
+    Swal.fire('Error!', 'Gender is required.', 'error');
+    setSubmitted(false);
+  } else if (!designation) {
+    Swal.fire('Error!', 'Designation is required.', 'error');
+    setSubmitted(false);
+  } else if (!salary) {
+    Swal.fire('Error!', 'Salary is required.', 'error');
+    setSubmitted(false);
+  } else {
+    const age = calculateAge(dateOfBirth);
     if (age < 18) {
       Swal.fire('Error!', 'Age must be at least 18 years old.', 'error');
       setSubmitted(false);
-    }else{
+    } else {
       navigate('/secondform');
     }
-  }else{
-    Swal.fire('Error!', 'Fill all the required Details', 'error');
-    setSubmitted(false);
   }
+  
       };
 
-      const addUser = async() => {
+      // const addUser = async() => {
         
 
-        axios.post('/addUser', {
-          username: employeeName,
-          id: employeeId,
-          department: department,
-          dob: dateOfBirth,
-          gender: gender,
-          designation: designation,
-          salary: salary
-        }).then((response)=>{
-          console.log(response);
-          Swal.fire('Success!', 'Employee added successfully!', 'success');
-        })
-        .catch((error) => {
-            console.error(error);
-            Swal.fire('Error!', 'Failed to add employee', 'error');
-          });
-      }
+      //   axios.post('/addUser', {
+      //     username: employeeName,
+      //     id: employeeId,
+      //     department: department,
+      //     dob: dateOfBirth,
+      //     gender: gender,
+      //     designation: designation,
+      //     salary: salary
+      //   }).then((response)=>{
+      //     console.log(response);
+      //     Swal.fire('Success!', 'Employee added successfully!', 'success');
+      //   })
+      //   .catch((error) => {
+      //       console.error(error);
+      //       Swal.fire('Error!', 'Failed to add employee', 'error');
+      //     });
+      // }
     
       
 
